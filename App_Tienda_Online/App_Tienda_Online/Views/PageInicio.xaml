@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="App_Tienda_Online.Views.PageInicio"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="selectedButtonStyle">
+            <Setter Property="TextColor" Value="Orange" />
+            <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+            <Setter Property="BorderColor" Value="Orange" />
+        </Style>
+        <Style TargetType="Button" x:Key="selectedButtonStyle2">
+            <Setter Property="TextColor" Value="DarkGray" />
+            <!--<Setter Property="HeightRequest" Value="0,0,0,100" />-->
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="BorderColor" Value="DarkGray" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="InicioButton" BackgroundColor="White" HeightRequest="55" BorderWidth="3" Text="Inicio" Grid.Column="0" Clicked="InicioButton_Clicked"/>
+            <Button x:Name="PromosButton" BackgroundColor="White" HeightRequest="55" BorderWidth="3" Text="Promos y cupones" Grid.Column="1" Clicked="PromosButton_Clicked"/>
+            <Button x:Name="EnvioButton" BackgroundColor="White" HeightRequest="55" BorderWidth="3" Text="Envío 24 horas" Grid.Column="2" Clicked="EnvioButton_Clicked" />
+        </Grid>
+        
+        <StackLayout x:Name="Inicio" IsVisible="True">
+            <ScrollView>
+                <!--Contenido de Inicio-->
+                <!--<Label Text="Contenido de Inicio" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                <StackLayout Padding="0">
+                    <Frame BackgroundColor="White" Margin="10" HasShadow="True" CornerRadius="10">
+                     
+                        <ListView x:Name="ProductsListView" ItemsSource="{Binding Products}" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Margin="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Image Source="{Binding thumbnail}" Aspect="AspectFill" HeightRequest="200" Grid.RowSpan="4"/>
+                                            <StackLayout Grid.Row="2" Padding="10" Spacing="0">
+                                                <Frame HorizontalOptions="Center" Padding="1" BackgroundColor="#FFF" CornerRadius="20">
+                                                    <Label Text="¡Promoción!" TextColor="Red" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" Padding="5" />
+
+                                                </Frame>
+
+                                                <Frame HorizontalOptions="Start" Padding="10" BackgroundColor="#FFF" CornerRadius="20">
+                                                    <StackLayout>
+                                                        <Label Text="{Binding title}" FontAttributes="Bold" FontSize="25" TextColor="#23b902" />
+
+                                                        <Label Text="{Binding brand}" FontSize="16" TextColor="#23b902" />
+
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Frame BackgroundColor="#fff" HorizontalOptions="End" Padding="10" CornerRadius="20">
+                                                    <StackLayout>
+                                                        <Label Text="{Binding price, StringFormat='$ {0}'}" FontSize="20" TextColor="#23b902" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                            <!--el clicked no funcion_ al parecer no es acpetado, nose porque-->
+                                            <Button Text="Ver mas " BackgroundColor="#23b902" TextColor="White" CornerRadius="20" Margin="10" x:Name="BtnProduct" 
+                                                    WidthRequest="100" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="3" Clicked="BtnProduct_Clicked"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+
+                </StackLayout>
+                <!--Agrega más elementos aquí-->
+            </ScrollView>
+        </StackLayout>
+
+        <!-- Vista de promos y cupones -->
+        <StackLayout x:Name="Promos" IsVisible="False">
+            <ScrollView>
+                <!--Contenido de Promos-->
+                <!--<Label Text="Contenido de Promos" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Frame BackgroundColor="Red" HeightRequest="150" Margin="10" Padding="0">
+                            <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+
+                                </Grid.ColumnDefinitions>
+                                <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                <Image Source="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/287014105279105.5f756be0714ba.png" 
+                                                       WidthRequest="10" Grid.Row="0" Grid.Column="2" Aspect="AspectFit"/>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                                    <Label Text="Tus compras Acumulan con Fpay" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontSize="18" HorizontalTextAlignment="Center" />
+
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1">
+                                    <Label Text="10%" TextColor="White" VerticalTextAlignment="Center" FontSize="40" FontAttributes="Bold"/>
+                                </StackLayout>
+                                <Image Source="https://images.ctfassets.net/ynglr8ha4zwh/4BOka06CJBmjZhyttLBPTr/df7442e1e510bae318e2bf9e395d21c6/Landing_Whitelabel_Logo_cmr.jpeg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="2" />
+                                <Label Text="Adicionales" TextColor="Black" FontSize="15" FontAttributes="Bold"
+                                                       Grid.Row="2" Grid.Column="3" VerticalOptions="Center"/>
+                            </Grid>
+                         
+                        </Frame>
+                        <Frame BackgroundColor="Green" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                                <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/CMR_Falabella.svg/3000px-CMR_Falabella.svg.png"
+                                                       Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="25"/>
+                                <StackLayout Grid.Column="1" Grid.RowSpan="2" Grid.Row="0" Padding="20">
+                                    <Label Text="s/ 40 " FontSize="40" FontAttributes="Bold" TextColor="#fff" />
+                                    <Label Text="de devolucion con tu vuena CMR Visa" FontSize="18" FontAttributes="Bold" TextColor="#fff"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                        <Frame BackgroundColor="Blue" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="White" Margin="0" Padding="10" CornerRadius="10">
+                                    <Image Source="https://www.bbva.com/wp-content/themes/coronita-bbvacom/assets/images/logos/bbva-logo-900x269.png"
+                                                        Aspect="AspectFit" />
+                                </Frame>
+
+                                <StackLayout Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Padding="20">
+                                    <Label Text="HATA 3 PAGOS SIN INTERESES*" HorizontalTextAlignment="Center" FontSize="25" FontAttributes="Bold" TextColor="#fff" />
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                        <Frame BackgroundColor="Gray" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="White" Margin="0" Padding="5" CornerRadius="10">
+                                    <Image Source="https://w1.pngwing.com/pngs/191/339/png-transparent-visa-mastercard-logo-credit-card-yellow-text-line-area-circle.png"
+                                                        Aspect="AspectFit" />
+                                </Frame>
+
+                                <StackLayout Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1" Padding="20">
+                                    <Label Text="Te regalamos" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" TextColor="#fff" />
+                                    <Label Text="¡4 cupones de descuento!" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" TextColor="#fff" />
+
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                        <Frame BackgroundColor="White" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="https://img.freepik.com/vector-premium/promocion-fondo-descuento-super-venta_682335-71.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <!--Agrega más elementos aquí-->
+            </ScrollView>
+        </StackLayout>
+
+        <!-- Vista de envío 24 horas -->
+        <StackLayout x:Name="Envio" IsVisible="False">
+            <ScrollView>
+                <!--Contenido de Envío-->
+                <!--<Label Text="Contenido de Envío" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+
+                <StackLayout>
+                    <Frame CornerRadius="10" BackgroundColor="#F8F8F8" Margin="10">
+
+                        <StackLayout Padding="10">
+                            <Image Source="https://img.freepik.com/vector-premium/paquete-entrega-express-truck-delivery-concepto-servicio-entrega-camiones-telefono-inteligente_420121-174.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                            <Label Text="Envío gratis" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,0"/>
+                            <Label Text="Entrega en 2-3 días hábiles" FontSize="Medium" Margin="0,5,0,0"/>
+                            <Label Text="Descripción del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nisl eu nisl rhoncus, nec imperdiet magna volutpat. Sed vestibulum, sapien non luctus varius, velit nunc tincidunt arcu, vel dictum diam velit in odio. Sed id nisl diam. Donec risus enim, efficitur eget ligula id, dignissim euismod risus. Sed euismod, quam vel dictum bibendum, elit nisl pretium eros, in pretium lorem ante sit amet eros." FontSize="Small" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="10" BackgroundColor="#F8F8F8" Margin="10">
+
+                        <StackLayout Padding="10">
+                            <Image Source="https://thumbs.dreamstime.com/b/ejemplo-del-vector-del-cami%C3%B3n-de-reparto-h-horas-ayunan-icono-del-env%C3%ADo-del-servicio-de-entrega-83730989.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                            <Label Text="Envío express" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,0"/>
+                            <Label Text="Entrega en 24 horas" FontSize="Medium" Margin="0,5,0,0"/>
+                            <Label Text="Descripción del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nisl eu nisl rhoncus, nec imperdiet magna volutpat. Sed vestibulum, sapien non luctus varius, velit nunc tincidunt arcu, vel dictum diam velit in odio. Sed id nisl diam. Donec risus enim, efficitur eget ligula id, dignissim euismod risus. Sed euismod, quam vel dictum bibendum, elit nisl pretium eros, in pretium lorem ante sit amet eros." FontSize="Small" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <!--Agrega más elementos aquí-->
+            </ScrollView>
+        </StackLayout>
+        <!--<CarouselView x:Name="carouselView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" PositionChanged="Slider_PositionChanged">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type View}">
+                    <ScrollView>
+                         --><!--Contenido de Inicio--> 
+                        <!--<Label Text="Contenido de Inicio" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>--><!--
+                        <StackLayout Padding="10" x:Name="Inicio">
+                            <Frame BackgroundColor="White" Margin="10" HasShadow="True" CornerRadius="10">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Image Source="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/287014105279105.5f756be0714ba.png" Aspect="AspectFill" 
+                                           HeightRequest="200" Grid.RowSpan="4"/>
+
+                                    <StackLayout Grid.Row="2" Padding="10" Spacing="0">
+                                        <Label Text="¡Promoción!" TextColor="Red" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" Padding="5" />
+
+                                        <StackLayout HorizontalOptions="Start" Padding="10" >
+                                            <Label Text="assdasad asdasasd" FontAttributes="Bold" FontSize="25" TextColor="#23b902" />
+                                            <Label Text="Samsung" FontSize="16" TextColor="#23b902" />
+                                        </StackLayout>
+
+                                        <StackLayout BackgroundColor="#fff" HorizontalOptions="End" Padding="10">
+                                            <Label Text="$1,249" FontSize="20" TextColor="#23b902" FontAttributes="Bold" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    --><!--el clicked no funcion_ al parecer no es acpetado, nose porque-->
+                                    <!--<Button Text="Ver mas " BackgroundColor="#23b902" TextColor="White" CornerRadius="20" Margin="10" x:Name="BtnProduct"
+                                            WidthRequest="100" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="End" Grid.Row="3" />--><!--
+                                </Grid>
+                                
+                            </Frame>
+                            
+                        </StackLayout>
+                         --><!--Agrega más elementos aquí--><!-- 
+                    </ScrollView>
+                    <ScrollView>
+                         --><!--Contenido de Promos--> 
+                        <!--<Label Text="Contenido de Promos" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>--><!--
+                        <StackLayout x:Name="Promos" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <Frame BackgroundColor="Red" HeightRequest="150" Margin="10" Padding="0">
+                                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                        <Image Source="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/287014105279105.5f756be0714ba.png" 
+                                                       WidthRequest="10" Grid.Row="0" Grid.Column="2" Aspect="AspectFit"/>
+
+                                        <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                                            --><!--<Label Text="Tus compras Acumulan con Fpay" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontSize="18" HorizontalTextAlignment="Center" />--><!--
+                                            <Label Text="assadsdasd" VerticalTextAlignment="Center" TextColor="White" FontAttributes="Bold" FontSize="18" HorizontalTextAlignment="Center" />
+
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1">
+                                            <Label Text="10%" TextColor="White" VerticalTextAlignment="Center" FontSize="40" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <Image Source="https://images.ctfassets.net/ynglr8ha4zwh/4BOka06CJBmjZhyttLBPTr/df7442e1e510bae318e2bf9e395d21c6/Landing_Whitelabel_Logo_cmr.jpeg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="2" />
+                                        <Label Text="Adicionales" TextColor="Black" FontSize="15" FontAttributes="Bold"
+                                                       Grid.Row="2" Grid.Column="3" VerticalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                                <Frame BackgroundColor="Green" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                                        <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/CMR_Falabella.svg/3000px-CMR_Falabella.svg.png"
+                                                       Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="25"/>
+                                        <StackLayout Grid.Column="1" Grid.RowSpan="2" Grid.Row="0" Padding="20">
+                                            <Label Text="s/ 40 " FontSize="40" FontAttributes="Bold" TextColor="#fff" />
+                                            <Label Text="de devolucion con tu vuena CMR Visa" FontSize="18" FontAttributes="Bold" TextColor="#fff"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                                <Frame BackgroundColor="Blue" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                        <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="White" Margin="0" Padding="10" CornerRadius="10">
+                                            <Image Source="https://www.bbva.com/wp-content/themes/coronita-bbvacom/assets/images/logos/bbva-logo-900x269.png"
+                                                        Aspect="AspectFit" />
+                                        </Frame>
+
+                                        <StackLayout Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Padding="20">
+                                            <Label Text="HATA 3 PAGOS SIN INTERESES*" HorizontalTextAlignment="Center" FontSize="25" FontAttributes="Bold" TextColor="#fff" />
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                                <Frame BackgroundColor="Gray" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="https://us.123rf.com/450wm/naropano/naropano1606/naropano160600528/58727651-textura-de-fondo-abstracto-anaranjado-en-blanco-para-el-dise%C3%B1o-bordes-de-color-naranja-oscuro.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+                                        <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="White" Margin="0" Padding="5" CornerRadius="10">
+                                            <Image Source="https://w1.pngwing.com/pngs/191/339/png-transparent-visa-mastercard-logo-credit-card-yellow-text-line-area-circle.png"
+                                                        Aspect="AspectFit" />
+                                        </Frame>
+
+                                        <StackLayout Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1" Padding="20">
+                                            <Label Text="Te regalamos" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" TextColor="#fff" />
+                                            <Label Text="¡4 cupones de descuento!" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold" TextColor="#fff" />
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                                <Frame BackgroundColor="White" WidthRequest="150" HeightRequest="150" Margin="5" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="https://img.freepik.com/vector-premium/promocion-fondo-descuento-super-venta_682335-71.jpg" 
+                                                       Aspect="AspectFill" Grid.ColumnSpan="5" Grid.RowSpan="3"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </StackLayout>
+                         --><!--Agrega más elementos aquí--><!-- 
+                    </ScrollView>
+                    <ScrollView>
+                         --><!--Contenido de Envío--> 
+                        <!--<Label Text="Contenido de Envío" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>--><!--
+
+                        <StackLayout>
+                            <Frame CornerRadius="10" BackgroundColor="#F8F8F8" Margin="10">
+
+                                <StackLayout Padding="10">
+                                    <Image Source="https://img.freepik.com/vector-premium/paquete-entrega-express-truck-delivery-concepto-servicio-entrega-camiones-telefono-inteligente_420121-174.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                                    <Label Text="Envío gratis" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,0"/>
+                                    <Label Text="Entrega en 2-3 días hábiles" FontSize="Medium" Margin="0,5,0,0"/>
+                                    <Label Text="Descripción del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nisl eu nisl rhoncus, nec imperdiet magna volutpat. Sed vestibulum, sapien non luctus varius, velit nunc tincidunt arcu, vel dictum diam velit in odio. Sed id nisl diam. Donec risus enim, efficitur eget ligula id, dignissim euismod risus. Sed euismod, quam vel dictum bibendum, elit nisl pretium eros, in pretium lorem ante sit amet eros." FontSize="Small" Margin="0,10,0,0"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame CornerRadius="10" BackgroundColor="#F8F8F8" Margin="10">
+
+                                <StackLayout Padding="10">
+                                    <Image Source="https://thumbs.dreamstime.com/b/ejemplo-del-vector-del-cami%C3%B3n-de-reparto-h-horas-ayunan-icono-del-env%C3%ADo-del-servicio-de-entrega-83730989.jpg" Aspect="AspectFill" HeightRequest="200"/>
+                                    <Label Text="Envío express" FontSize="Large" FontAttributes="Bold" Margin="0,10,0,0"/>
+                                    <Label Text="Entrega en 24 horas" FontSize="Medium" Margin="0,5,0,0"/>
+                                    <Label Text="Descripción del producto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod nisl eu nisl rhoncus, nec imperdiet magna volutpat. Sed vestibulum, sapien non luctus varius, velit nunc tincidunt arcu, vel dictum diam velit in odio. Sed id nisl diam. Donec risus enim, efficitur eget ligula id, dignissim euismod risus. Sed euismod, quam vel dictum bibendum, elit nisl pretium eros, in pretium lorem ante sit amet eros." FontSize="Small" Margin="0,10,0,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                         --><!--Agrega más elementos aquí--><!-- 
+                    </ScrollView>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Content="{Binding}"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>-->
+    </StackLayout>
+</ContentPage>

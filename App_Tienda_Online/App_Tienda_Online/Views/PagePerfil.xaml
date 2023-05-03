@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Tienda_Online.Views.PagePerfil">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#F3F3F3" CornerRadius="10" Margin="20" Padding="20">
+                <StackLayout Spacing="10">
+                    <Image Source="https://static.vecteezy.com/system/resources/previews/003/837/741/non_2x/software-maintenance-concept-icon-fixing-program-defects-correct-faults-computer-repair-operating-system-installation-idea-thin-line-illustration-isolated-outline-drawing-editable-stroke-vector.jpg" 
+                               HorizontalOptions="CenterAndExpand" HeightRequest="400"/>
+                    <Label Text="Mantenimiento programado" FontSize="Large" FontAttributes="Bold" TextColor="#1E1E1E" HorizontalOptions="Center" />
+                    <Label Text="Aun estamos trabajando en mejoras para modificar la app." FontSize="Medium" TextColor="#1E1E1E" HorizontalTextAlignment="Center" />
+                    <Label Text=":)" FontSize="Medium" TextColor="#1E1E1E" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

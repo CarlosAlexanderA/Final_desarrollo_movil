@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="App_Tienda_Online.Views.PageCategoria">
+    <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+            <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="0">
+                <Frame BackgroundColor="Red" Margin="10" Padding="0" HasShadow="True">
+
+                    <ListView ItemsSource="{Binding Categories}" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand" Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="https://previews.123rf.com/images/oscolock/oscolock1701/oscolock170100043/70368982-fondo-blanco-para-presentaci%C3%B3n-con-colorido-esquina-superior-derecha-redonda-de-l%C3%A1pices-de-madera.jpg"
+                                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" Aspect="AspectFill"/>
+                                            <Image Source="https://smartphonesperu.pe/wp-content/uploads/2020/11/iphone-12-pro.png" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFit" />
+                                            <Image Source="https://smartphonesperu.pe/wp-content/uploads/2020/11/iphone-12-pro.png" Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFit" />
+                                            <Image Source="https://smartphonesperu.pe/wp-content/uploads/2020/11/iphone-12-pro.png" Grid.Column="5" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFit" />
+                                            <Label Text="{Binding Name}" TextTransform="Uppercase" Grid.Row="1" VerticalTextAlignment="Center" Grid.ColumnSpan="3" FontSize="20" TextColor="Black" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+                                    </Grid>
+
+
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+                </StackLayout>
+
+
+                <!--<Frame BackgroundColor="Red" HeightRequest="200" Margin="10" Padding="0">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand" Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://www.crushpixel.com/big-static15/preview4/disposable-plastic-multicolored-tubules-drinks-2024319.jpg"
+                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" Aspect="AspectFill"/>
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800"
+                               Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFill" />
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800" 
+                               Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFill" />
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800" 
+                               Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Aspect="AspectFill" />
+                        <Label Text="Audios" TextTransform="Uppercase" Grid.Row="1" Grid.Column="3" VerticalTextAlignment="Center" Grid.ColumnSpan="3"
+                               FontSize="30" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="Red" HeightRequest="200" Margin="10" Padding="0">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand" Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ot-XY01_daQaKX1B6vtOAKAo4MYHe0m2FwvIeqhkK2neXlJnU_akaHmFjNn_-QRA11A" ScaleY="-1"
+                               Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="3" Aspect="AspectFill"/>
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800"
+                               Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Aspect="AspectFit" />
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800" 
+                               Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Aspect="AspectFill" />
+                        <Image Source="https://falabella.scene7.com/is/image/FalabellaPE/gsc_115217156_1041871_1?wid=800" 
+                               Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Aspect="AspectFill" />
+                        <Label Text="Audios" TextTransform="Uppercase" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Grid.ColumnSpan="3"
+                               FontSize="20" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black"/>
+                    </Grid>
+                </Frame>-->
+            </ScrollView>
+        </StackLayout>
+    </StackLayout>
+
+
+</ContentPage>

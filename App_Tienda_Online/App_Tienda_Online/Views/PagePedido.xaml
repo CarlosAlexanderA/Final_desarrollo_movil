@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App_Tienda_Online.Views.PagePedido">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame Padding="10" CornerRadius="5" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Label Text="N° 12345678987" FontAttributes="Bold" HorizontalOptions="Start" Grid.Row="0" VerticalTextAlignment="Center"/>
+                        <Button Text="Ver detalles ->" TextColor="Orange" Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent" HorizontalOptions="End"/>
+                        <BoxView Grid.Row="1" HeightRequest="2" Grid.ColumnSpan="3" BackgroundColor="Gray" HorizontalOptions="Fill" Margin="0"/>
+
+
+                        <Image Source="https://www.vhv.rs/dpng/d/606-6066520_laptop-hd-png-download.png" 
+                                   Grid.Row="2" Grid.Column="0" WidthRequest="50" HeightRequest="50" Aspect="AspectFill"/>
+                        <Label Grid.Row="2" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." Grid.Column="1" VerticalTextAlignment="Center"/>
+                        <Image Grid.Row="2" Source="https://thumbs.dreamstime.com/b/servicios-financieros-concepto-de-la-devoluci%C3%B3n-efectivo-reembolso-del-dinero-rentabilidad-inversi%C3%B3n-cuenta-ahorros-intercambio-99901390.jpg" 
+                               Grid.Column="2" WidthRequest="50" Aspect="AspectFill" HeightRequest="80" VerticalOptions="Center"/>
+
+                        <Label Text="Reembolso el 02/12/2022" Grid.Row="3" Grid.Column="2" VerticalOptions="End" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        <Label Text="Cancelado" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                               TextColor="Red" FontAttributes="Bold"/>
+
+                        <BoxView Grid.Row="4" Grid.ColumnSpan="3" HeightRequest="2" BackgroundColor="Gray" HorizontalOptions="Fill" Margin="0"/>
+
+                        <Label Text="Total: $/ 43.00" Grid.Row="5" Grid.Column="2" FontAttributes="Bold" HorizontalOptions="End"/>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor="#F3F3F3" CornerRadius="10" Margin="20" Padding="20">
+                    <StackLayout Spacing="10">
+                        <Image Source="https://static.vecteezy.com/system/resources/previews/003/837/741/non_2x/software-maintenance-concept-icon-fixing-program-defects-correct-faults-computer-repair-operating-system-installation-idea-thin-line-illustration-isolated-outline-drawing-editable-stroke-vector.jpg" 
+                               HorizontalOptions="CenterAndExpand" HeightRequest="400"/>
+                        <Label Text="Mantenimiento programado" FontSize="Large" FontAttributes="Bold" TextColor="#1E1E1E" HorizontalOptions="Center" />
+                        <Label Text="Aun estamos trabajando en mejoras para modificar la app." FontSize="Medium" TextColor="#1E1E1E" HorizontalTextAlignment="Center" />
+                        <Label Text=":)" FontSize="Medium" TextColor="#1E1E1E" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

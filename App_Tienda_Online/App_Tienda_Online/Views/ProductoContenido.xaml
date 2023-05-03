@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App_Tienda_Online.Views"
+             x:Class="App_Tienda_Online.Views.ProductoContenido">
+
+    <ContentPage.Content>
+        
+        <ScrollView>
+            <StackLayout BackgroundColor="#F6F6F6">
+                <StackLayout BackgroundColor="White" Margin="20, 40, 20, 20" Padding="20">
+                    <StackLayout>
+                        <Label Text="{Binding title}" FontSize="Title" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="CenterAndExpand" />
+                        <BoxView HeightRequest="1" BackgroundColor="#333333" Margin="10, 5, 10, 5" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 10">
+                        <Image Source="{Binding thumbnail}" WidthRequest="150" HeightRequest="200" Margin="0, 0, 20, 0"/>
+                        <StackLayout VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding description}" FontSize="Body" TextColor="#333333"/>
+                            <Label Text="{Binding category}" FontSize="Body" TextColor="#555555" Margin="0, 10, 0, 0"/>
+                            <Label Text="{Binding brand}" FontSize="Body" TextColor="#555555"/>
+                            <BoxView HeightRequest="1" BackgroundColor="#555555" Margin="0, 10, 0, 10" />
+                            <Label Text="{Binding price, StringFormat='$ {0}'}" FontSize="Title" TextColor="#333333"/>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="0, 10, 0, 0">
+                                <Label Text="Descuento: " FontSize="Body" TextColor="#555555"/>
+                                <Label Text="{Binding discountPercentage, StringFormat='${0}'}" FontSize="Body" TextColor="#23b902"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                              
+                            </Grid.ColumnDefinitions>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0" x:Name="star_logg" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start">
+                            <Label Text="{Binding rating, StringFormat='Rating: {0}'}" FontSize="Body" TextColor="#333333" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+
+
+                    </Grid>
+                  
+
+                    <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0">
+                        <Label Text="Stock: " FontSize="Body" TextColor="#555555"/>
+                        <Label Text="{Binding stock}" FontSize="Body" TextColor="#333333"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="1" BackgroundColor="#333333" Margin="0, 20, 0, 10" />
+                    <Button Text="Cerrar" FontSize="Body" BackgroundColor="#333333" TextColor="White" CornerRadius="20" Margin="0, 20, 0, 0" x:Name="Cerrar_Modal" Clicked="Cerrar_Modal_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
